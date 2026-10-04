@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import ru.pologova.SpringBootLab2.enums.Systems;
 
 @Data
 public class Request {
@@ -17,7 +18,7 @@ public class Request {
     @Size(max = 32, message = "operationUid должен содержать не более 32 символов")
     private String operationUid;
 
-    private String systemName;
+    private Systems systemName;
 
     @NotBlank(message = "systemTime не должен быть пустым")
     private String systemTime;
@@ -31,4 +32,19 @@ public class Request {
     private int templateId;
     private int productCode;
     private int smsCode;
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", source='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
 }
